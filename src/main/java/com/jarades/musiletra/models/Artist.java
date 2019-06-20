@@ -1,19 +1,31 @@
 package com.jarades.musiletra.models;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Artist {
 
+	@Id @GeneratedValue
 	private Integer id;
 	private String artistName;
 	private String artistSpotifyId;
+	@ManyToOne
+	private List<Reputation> reputation;
 
 	public Artist() {
 		super();
 	}
 
-	public Artist(String artistName, String artistSpotifyId) {
+	public Artist(String artistName, String artistSpotifyId, List<Reputation> reputation) {
 		super();
 		this.artistName = artistName;
 		this.artistSpotifyId = artistSpotifyId;
+		this.reputation = reputation;
 	}
 
 	public Integer getId() {
@@ -38,6 +50,14 @@ public class Artist {
 
 	public void setArtistSpotifyId(String artistSpotifyId) {
 		this.artistSpotifyId = artistSpotifyId;
+	}
+
+	public List<Reputation> getReputation() {
+		return reputation;
+	}
+
+	public void setReputation(List<Reputation> reputation) {
+		this.reputation = reputation;
 	}
 
 }

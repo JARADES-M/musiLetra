@@ -1,8 +1,13 @@
 package com.jarades.musiletra.models;
 
-// implements comparable
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Music {
 
+	@Id @GeneratedValue
 	private Integer id;
 	private String musicName;
 	private String musicSpotifyId;
